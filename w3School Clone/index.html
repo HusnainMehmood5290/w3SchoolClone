@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W3School</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    var count=0;
+    var arr=[
+        "JavaScript is the world's most popular programming language.\n\nJavaScript is the programming language of the Web.\n\nJavaScript is easy to learn.\n\nThis tutorial will teach you JavaScript from basic to advanced.",
+        "This page contains some examples of what JavaScript can do.",
+        "document.getElementById('demo').innerHTML = 'My First JavaScript'; ",
+        "JavaScript can 'display' data in different ways:\n\nWriting into an HTML element, using innerHTML.\nWriting into the HTML output using document.write().\nWriting into an alert box, using window.alert().\nWriting into the browser console, using console.log().",
+        "JavaScript statements are composed of:\n\nValues, Operators, Expressions, Keywords, and Comments.\n\nThis statement tells the browser to write 'Hello Dolly.' inside an HTML element with id='demo':",
+        "In a programming language, variables are used to store data values.\n\nJavaScript uses the keywords var, let and const to declare variables.\n\nAn equal sign is used to assign values to variables.\n\nIn this example, x is defined as a variable. Then, x is assigned (given) the value 6:",
+        "JavaScript comments can be used to explain JavaScript code, and to make it more readable.\n\nJavaScript comments can also be used to prevent execution, when testing alternative code."
+    ]
+    function next(){
+        if(count<6){
+            count++;
+            document.getElementById('par').innerHTML=arr[count];
+            document.getElementById(count-1).style.backgroundColor='#fff';
+            document.getElementById('topic').innerHTML=document.getElementById(count).innerHTML
+            document.getElementById(count).style.backgroundColor='#04AA6D';
+        }
+        else{
+            document.getElementsByClassName('next').disabled=true;
+        }
+    }
+    function previous(){
+        if(count>0){
+            count--;
+            document.getElementById('par').innerHTML=arr[count];
+            document.getElementById('topic').innerHTML=document.getElementById(count).innerHTML
+            document.getElementById(count+1).style.backgroundColor='#fff';
+            document.getElementById(count).style.backgroundColor='#04AA6D';
+        }
+        else{
+            document.getElementsByClassName('previous').disabled=true;
+        }
+    }
+    function myclick(id){
+        document.getElementById('0').style.backgroundColor='#fff';
+        document.getElementById('1').style.backgroundColor='#fff';
+        document.getElementById('2').style.backgroundColor='#fff';
+        document.getElementById('3').style.backgroundColor='#fff';
+        document.getElementById('4').style.backgroundColor='#fff';
+        document.getElementById('5').style.backgroundColor='#fff';
+        document.getElementById('6').style.backgroundColor='#fff';
+        document.getElementById(id).style.backgroundColor='#04AA6D';
+        
+        count=id;
+        console.log(count);
+        document.getElementById('par').innerHTML=arr[id];
+
+    }
+</script>
+<body>
+    <ul class="container1">
+        <li class="topHeader"><img src="./logo.png" class='logo'alt="Logo"></li>
+        <li class="topHeader top1"><a href="#">Tutorials</a></li>
+        <li class="topHeader top1"><a href="#">Refrences</a></li>
+        <li class="topHeader top1"><a href="#">Exexcises</a></li>
+        <li class="topHeader top1"><a href="https://www.w3schools.com/videos/index.php">Videos</a></li>
+        <li class="topHeader topHeader-btns top1 login"><button><a href="https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fmy-learning.w3schools.com">Log in</a></button></li>
+        <li class="topHeader topHeader-btns top1 CreateWebsite"><button><a href="https://www.w3schools.com/spaces/">Create Website</a></button></li>
+        <li class="topHeader topHeader-btns top1 Certified"><button><a href="https://campus.w3schools.com/collections/course-catalog">Get Certified</a></button></li>
+        <li class="topHeader topHeader-btns top1 Upgrade"><button><a href="https://www.w3schools.com/pro/index.php">Upgrade</a></button></li>
+    </ul>
+
+    <ul class="container2">
+        <li class="scndHeader">Home</li>
+        <li class="scndHeader">HTML</li>
+        <li class="scndHeader">CSS</li>
+        <li class="scndHeader js">JAVASCRIPT</li>
+        <li class="scndHeader">SQL</li>
+        <li class="scndHeader">PAYTHON</li>
+        <li class="scndHeader">JAVA</li>
+        <li class="scndHeader">PHP</li>
+        <li class="scndHeader">BOOTSTRAP</li>
+    </ul>
+
+    <ul class="container3">
+        <li class="sideBar sidetop">JS Tutorials</li>
+        <li class="sideBar"><button onclick="myclick(0)" style="background-color: #04AA6D;" id="0">JS Home</button></li>
+        <li class="sideBar"><button onclick="myclick(1)" id="1">JS Introduction</button></li>
+        <li class="sideBar"><button onclick="myclick(2)" id="2">JS Where To</button></li>
+        <li class="sideBar"><button onclick="myclick(3)" id="3">JS Output</button></li>
+        <li class="sideBar"><button onclick="myclick(4)" id="4">JS Statements</button></li>
+        <li class="sideBar"><button onclick="myclick(5)" id="5">JS Syntax</button></li>
+        <li class="sideBar"><button onclick="myclick(6)" id="6">JS Comment</button></li>
+    </ul>
+    <div class="container4">
+        <img src="./banner.png" alt="Google ADs" srcset="">
+        <p id="topic" >JS Home</p>
+        <button onclick="previous()" class="previous">< Previous</button>
+        <button onclick="next()" class="next">Next ></button>
+        <div class="paragraph">
+            <pre id="par">JavaScript is the world's most popular programming language.
+
+JavaScript is the programming language of the Web.
+
+JavaScript is easy to learn.
+
+This tutorial will teach you JavaScript from basic to advanced.</pre>
+        </div>
+    </div>
+    <p style="margin-top: 45px; text-align: center;">Advertisement</p>
+</body>
+</html>
